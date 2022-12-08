@@ -5,7 +5,6 @@ import { PopulationType } from "../props/populationType";
 
 interface CellProps {
   props: PopulationType;
-  id: number;
 }
 
 const rightChevron = (
@@ -121,10 +120,10 @@ const CongestionLevelText = styled.p`
   transform: translateY(-0.1em);
 `;
 
-const Cell = ({ props, id }: CellProps) => {
+const Cell = ({ props }: CellProps) => {
   const { width } = useWindowDimensions();
   return (
-    <Container key={id}>
+    <Container>
       <Wrapper to={`/detail/${props.area_name}`}>
         <LeftSection>
           <Title>

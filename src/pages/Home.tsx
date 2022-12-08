@@ -56,7 +56,7 @@ const Home = () => {
     });
 
     const data = result.map((place) => (
-      <Cell props={place} id={seoulInfo.indexOf(place)} />
+      <Cell props={place} key={seoulInfo.indexOf(place)} />
     ));
 
     return data;
