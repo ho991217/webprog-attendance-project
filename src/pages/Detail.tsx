@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { infoAtom } from "../atom/infoAtom";
-import getSeoulInfo from "../hooks/getSeoulInfo";
 import { PopulationType } from "../props/populationType";
 
 const Container = styled.div`
@@ -70,7 +69,7 @@ const Detail = () => {
 
   useEffect(() => {
     setThisInfo(seoulInfo.find((v) => v.area_name === place));
-  }, []);
+  }, [seoulInfo, place]);
   return (
     <Container>
       <InnerContainer>

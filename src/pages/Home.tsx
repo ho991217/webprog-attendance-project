@@ -64,7 +64,7 @@ const Home = () => {
 
   useEffect(() => {
     load();
-  }, []);
+  });
 
   useEffect(() => {
     if (seoulInfo.length === places.length) {
