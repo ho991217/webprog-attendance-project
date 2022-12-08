@@ -69,7 +69,8 @@ const Detail = () => {
 
   useEffect(() => {
     setThisInfo(seoulInfo.find((v) => v.area_name === place));
-  }, [seoulInfo, place]);
+  }, []);
+  
   return (
     <Container>
       <InnerContainer>
@@ -79,8 +80,12 @@ const Detail = () => {
         </Header>
         <Link to="/">home</Link>
         <div>갱신 시간 : {thisInfo?.status.time}</div>
-        <div>단위 시간 최대 인구 : {thisInfo?.status.area_population_max} 명</div>
-        <div>단위 시간 최소 인구 : {thisInfo?.status.area_population_min} 명</div>
+        <div>
+          단위 시간 최대 인구 : {thisInfo?.status.area_population_max} 명
+        </div>
+        <div>
+          단위 시간 최소 인구 : {thisInfo?.status.area_population_min} 명
+        </div>
       </InnerContainer>
     </Container>
   );
