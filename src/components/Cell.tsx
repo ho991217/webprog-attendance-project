@@ -96,6 +96,9 @@ const RightSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  @media (min-width: 601px) {
+    min-width: 150px;
+  }
 `;
 
 const CongestionLevelContainer = styled.div`
@@ -108,7 +111,13 @@ const CongestionLevel = styled.div<{ level: string }>`
   height: 20px;
   border-radius: 50%;
   background-color: ${({ level }) =>
-    level === "여유" ? "#00bfa5" : level === "보통" ? "#ffc107" : "#ff2222"};
+    level === "여유"
+      ? "#00bfa5"
+      : level === "보통"
+      ? "#ffc107"
+      : level === "붐빔"
+      ? "#ff8902"
+      : "#ff2222"};
   margin-right: 10px;
 `;
 

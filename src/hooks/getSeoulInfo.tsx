@@ -9,6 +9,7 @@ const getSeoulInfo = async (place: string) => {
     method: "get",
     url: `http://openapi.seoul.go.kr:8088/${key}/xml/citydata/1/5/${place}`,
   });
+
   const element = xml2js(data);
 
   const popData: PopulationType = {
