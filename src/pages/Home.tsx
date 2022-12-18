@@ -9,6 +9,7 @@ import getSeoulInfo from "../hooks/getSeoulInfo";
 import { places } from "../props/placeProps";
 import { infoAtom } from "../atom/infoAtom";
 import { PopulationType } from "../props/populationType";
+import { Helmet } from "react-helmet";
 
 const Main = styled.main`
   display: flex;
@@ -73,11 +74,16 @@ const Home = () => {
   }, [seoulInfo]);
 
   return (
-    <Main>
-      <SearchBar />
-      <CellContainer>{searchFilter()}</CellContainer>
-      {(loading || search) && <Spinner />}
-    </Main>
+    <>
+      <Helmet>
+        <meta name="theme-color" content="#eee" />
+      </Helmet>
+      <Main>
+        <SearchBar />
+        <CellContainer>{searchFilter()}</CellContainer>
+        {(loading) && <Spinner />}
+      </Main>
+    </>
   );
 };
 

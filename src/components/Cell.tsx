@@ -30,6 +30,8 @@ const Container = styled.li`
   background-color: #ed7547;
   border-radius: 10px;
   list-style: none;
+  user-select: none;
+  cursor: pointer;
 `;
 
 const Wrapper = styled(Link)`
@@ -84,11 +86,19 @@ const Comment = styled.p`
   color: #ffffffab;
 `;
 
-const HorizontalLine = styled.div`
+const HorizontalLine = styled.div<{ level?: string }>`
   height: 1px;
   flex-grow: 1;
   margin: 0 10px;
   background-color: rgba(255, 255, 255, 0.3);
+  @media (max-width: 600px) {
+    height: 4px;
+    border-radius: 9999px;
+    background: ${({ level, theme }) => `linear-gradient(
+      90deg,
+      ${theme.colors.gradient[level || "정보 없음"]}
+    )`};
+  }
   border: 0.5px solid rgba(255, 255, 255, 0.3);
 `;
 
@@ -110,14 +120,10 @@ const CongestionLevel = styled.div<{ level: string }>`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ level }) =>
-    level === "여유"
-      ? "#00bfa5"
-      : level === "보통"
-      ? "#ffc107"
-      : level === "붐빔"
-      ? "#ff8902"
-      : "#ff2222"};
+  background: ${({ level, theme }) => `linear-gradient(
+      90deg,
+      ${theme.colors.gradient[level || "정보 없음"]}
+    )`};
   margin-right: 10px;
 `;
 
@@ -137,16 +143,16 @@ const Cell = ({ props }: CellProps) => {
         <LeftSection>
           <Title>
             {props.area_name}
-            <HorizontalLine />
+            <HorizontalLine level={props.cong_status.level} />
           </Title>
-          <Comment>{props.status.area_congestion_message}</Comment>
+          <Comment>{props.cong_status.message}</Comment>
         </LeftSection>
         <RightSection>
           {width > 600 && (
             <CongestionLevelContainer>
-              <CongestionLevel level={props.status.area_congestion_level} />
+              <CongestionLevel level={props.cong_status.level} />
               <CongestionLevelText>
-                {props.status.area_congestion_level}
+                {props.cong_status.level}
               </CongestionLevelText>
             </CongestionLevelContainer>
           )}

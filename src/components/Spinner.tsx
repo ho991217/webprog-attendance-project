@@ -14,8 +14,8 @@ const Circles = styled.div`
 `;
 
 const Ellipse = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #ed764776;
