@@ -15,10 +15,6 @@ const getSeoulInfo = async (place: string): Promise<PopulationType> => {
   });
 
   const element = xml2js(data);
-  console.log(
-    element.elements[0].elements[2].elements[8].elements[0].elements[25]
-      .elements[0].elements[0].elements[0].text
-  );
 
   const popData: PopulationType = {
     area_name: element.elements[0].elements[2].elements[0].elements[0].text,

@@ -1,12 +1,10 @@
 export interface PopulationType {
   area_name: string;
-  // cong_status는 Status 타입을 상속받고 min, max, time 프로퍼티를 가진다.
   cong_status: Status & {
     min: string;
     max: string;
     time: string;
   };
-
   traffic_status: {
     avg: Status;
     roads: [
@@ -16,9 +14,7 @@ export interface PopulationType {
       }
     ];
   };
-
   weather: WeatherStatus;
-
   news: NewsStatus[];
 }
 

@@ -81,7 +81,7 @@ const Home = () => {
       <Main>
         <SearchBar />
         <CellContainer>{searchFilter()}</CellContainer>
-        {(loading) && <Spinner />}
+        {loading && <Spinner />}
       </Main>
     </>
   );

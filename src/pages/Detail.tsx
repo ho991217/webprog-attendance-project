@@ -377,6 +377,7 @@ const TableData = styled.td`
   }
 `;
 
+
 const Detail = () => {
   const { place } = useParams();
   const [seoulInfo] = useRecoilState<PopulationType[]>(infoAtom);
@@ -392,12 +393,6 @@ const Detail = () => {
     }
     setThisInfo(seoulInfo.find((v) => v.area_name === place));
   }, [place, seoulInfo]);
-
-  // useEffect(() => {
-  //   if (thisInfo) {
-  //     console.log(thisInfo.news);
-  //   }
-  // }, [thisInfo]);
 
   return (
     <>
@@ -429,7 +424,6 @@ const Detail = () => {
           </HeaderCell>
           <NewsCell>
             <H2>뉴스</H2>
-            {/** 모바일의 경우, 날짜를 뺴고 보여주며, 상위 두 개의 뉴스만 보여 줌 */}
             {thisInfo ? (
               width > 600 ? (
                 <Table>
